@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchJournals() {
       try {
-        const res = await fetch(`${process.env.BACKEND_URL}/api/journals`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/journals`);
         if (res.ok) {
           const data = await res.ok ? await res.json() : [];
           setJournals(data);

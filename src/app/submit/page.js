@@ -33,8 +33,8 @@ export default function SubmitPage() {
     async function fetchData() {
       try {
         const [resJ, resS] = await Promise.all([
-          fetch(`${process.env.BACKEND_URL}/api/journals`),
-          fetch(`${process.env.BACKEND_URL}/api/submissions/my`, {
+          fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/journals`),
+          fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/submissions/my`, {
             headers: { 'Authorization': `Bearer ${token}` }
           })
         ]);
@@ -94,7 +94,7 @@ export default function SubmitPage() {
     const token = localStorage.getItem('stecab_token');
 
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/api/submissions`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/submissions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

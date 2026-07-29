@@ -14,7 +14,7 @@ export default function JournalPage({ params }) {
   useEffect(() => {
     async function fetchJournalDetails() {
       try {
-        const res = await fetch(`${process.env.BACKEND_URL}/api/journals/${id}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/journals/${id}`);
         if (res.ok) {
           const data = await res.json();
           setJournal(data);
@@ -259,7 +259,7 @@ export default function JournalPage({ params }) {
                           <div className="flex flex-wrap items-center justify-between gap-3 text-xs pt-1.5">
                             <span className="text-gray-400">Keywords: <span className="text-gray-600 font-medium">{article.keywords}</span></span>
                             <a 
-                              href={`${process.env.BACKEND_URL}/files/mock-pdf.pdf`}
+                              href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/files/mock-pdf.pdf`}
                               download 
                               className="text-primary-600 hover:text-primary-800 font-bold flex items-center gap-1 transition-colors bg-primary-50 hover:bg-primary-100 px-3 py-1.5 rounded"
                             >

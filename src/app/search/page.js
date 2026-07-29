@@ -24,7 +24,7 @@ function SearchResultsContent() {
       
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:5000/api/articles/search?query=${encodeURIComponent(queryParam)}`);
+        const res = await fetch(`${process.env.BACKEND_URL}/api/articles/search?query=${encodeURIComponent(queryParam)}`);
         if (res.ok) {
           const data = await res.json();
           setResults(data);
@@ -157,7 +157,7 @@ function SearchResultsContent() {
               <div className="flex flex-wrap items-center justify-between gap-3 text-xs pt-1.5 border-t border-gray-50">
                 <span className="text-gray-400">Keywords: <span className="text-gray-600 font-medium">{article.keywords}</span></span>
                 <a 
-                  href="http://localhost:5000/files/mock-pdf.pdf"
+                  href={`${process.env.BACKEND_URL}/files/mock-pdf.pdf`}
                   download 
                   className="text-primary-600 hover:text-primary-800 font-bold flex items-center gap-1 transition-colors bg-primary-50 hover:bg-primary-100 px-3.5 py-2 rounded-lg"
                 >

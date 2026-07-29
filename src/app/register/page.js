@@ -37,7 +37,7 @@ export default function RegisterPage() {
         localStorage.setItem('stecab_token', data.token);
         localStorage.setItem('stecab_user', JSON.stringify(data.user));
         
-        // Dispatch event for layout navbar updates
+        
         window.dispatchEvent(new Event('auth-change'));
         
         setTimeout(() => {

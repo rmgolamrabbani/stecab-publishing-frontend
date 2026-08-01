@@ -3,8 +3,27 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import { Search, Menu, X, BookOpen, LogIn, LogOut, FileText, Mail } from 'lucide-react';
+import { 
+  Search, 
+  Menu, 
+  X, 
+  BookOpen, 
+  LogIn, 
+  LogOut, 
+  FileText, 
+  Mail, 
+  Facebook, 
+  Linkedin, 
+  Youtube 
+} from 'lucide-react';
 import './globals.css';
+
+// X (Twitter) এর আইকনের জন্য একটি কাস্টম SVG উপাদান
+const TwitterXIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 export default function RootLayout({ children }) {
   const router = useRouter();
@@ -339,10 +358,49 @@ export default function RootLayout({ children }) {
               <div>
                 <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-primary-800 pb-2">Connect with us</h4>
                 <div className="flex gap-4 mb-4">
-                  <a href="#" className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 transition-colors">F</a>
-                  <a href="#" className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 transition-colors">T</a>
-                  <a href="#" className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 transition-colors">L</a>
-                  <a href="#" className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 transition-colors">Y</a>
+                  {/* Facebook Link */}
+                  <a 
+                    href="https://www.facebook.com/stecab.publishing" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="Facebook"
+                    className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 hover:text-blue-500 transition-colors"
+                  >
+                    <Facebook size={16} />
+                  </a>
+
+                  {/* Twitter / X Link */}
+                  <a 
+                    href="https://x.com/stecab_publish" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="X (Twitter)"
+                    className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 hover:text-gray-200 transition-colors"
+                  >
+                    <TwitterXIcon className="w-4 h-4" />
+                  </a>
+
+                  {/* LinkedIn Link */}
+                  <a 
+                    href="https://linkedin.com/company/stecab-publishing" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="LinkedIn"
+                    className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 hover:text-blue-400 transition-colors"
+                  >
+                    <Linkedin size={16} />
+                  </a>
+
+                  {/* YouTube Link */}
+                  <a 
+                    href="https://youtube.com/@stecabpublishing" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="YouTube"
+                    className="w-8 h-8 rounded-full bg-primary-900 flex items-center justify-center text-white hover:bg-primary-800 hover:text-red-500 transition-colors"
+                  >
+                    <Youtube size={16} />
+                  </a>
                 </div>
                 <p className="text-xs text-gray-500">
                   This website and metadata are licensed under CC BY 4.0.
